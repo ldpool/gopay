@@ -1,5 +1,16 @@
 package paypal
 
+type WebHookRsp struct {
+	Code          int            `json:"-"`
+	Error         string         `json:"-"`
+	ErrorResponse *ErrorResponse `json:"-"`
+	Response      *WebHookVerify `json:"response,omitempty"`
+}
+
+type WebHookVerify struct {
+	VerificationStatus string `json:"verification_status,omitempty"`
+}
+
 type AccessToken struct {
 	Scope       string `json:"scope"`
 	AccessToken string `json:"access_token"`

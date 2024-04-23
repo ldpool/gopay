@@ -726,6 +726,19 @@ type BillingDetail struct {
 	Links       []*Link `json:"links"`
 }
 
+type SubRsp struct {
+	Code          int            `json:"-"`
+	Error         string         `json:"-"`
+	ErrorResponse *ErrorResponse `json:"-"`
+	Response      *SubDetail     `json:"response,omitempty"`
+}
+
+type SubDetail struct {
+	ID       string `json:"id"`
+	PlanId   string `json:"plan_id"`
+	CustomId string `json:"custom_id"`
+}
+
 type InvoiceNumber struct {
 	InvoiceNumber string `json:"invoice_number"`
 }
